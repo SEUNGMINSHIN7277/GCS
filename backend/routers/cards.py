@@ -12,7 +12,7 @@ def get_cards(list_id: str):
     """리스트의 카드 조회"""
     res = (
         supabase.table("cards")
-        .select("*, card_members(user_id), card_labels(label_id), task_insights(*)")
+        .select("*, card_members(user_id), card_labels(label_id)")
         .eq("list_id", list_id)
         .order("position")
         .execute()
@@ -40,7 +40,7 @@ def get_card(card_id: str):
     """카드 상세 조회"""
     res = (
         supabase.table("cards")
-        .select("*, card_members(user_id), card_labels(labels(*)), task_insights(*), comments(*)")
+        .select("*, card_members(user_id), card_labels(labels(*)), comments(*)")
         .eq("id", card_id)
         .single()
         .execute()

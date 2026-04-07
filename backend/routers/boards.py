@@ -8,7 +8,7 @@ router = APIRouter(prefix="/boards", tags=["boards"])
 @router.get("/")
 def list_boards():
     """모든 보드 조회"""
-    res = supabase.table("boards").select("*, profiles(name, email)").execute()
+    res = supabase.table("boards").select("*").execute()
     return res.data
 
 
