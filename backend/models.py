@@ -36,6 +36,7 @@ class CardCreate(BaseModel):
     title: str
     description: Optional[str] = None
     position: float = 0.0
+    priority_score: float = 0.0
     due_date: Optional[datetime] = None
 
 
